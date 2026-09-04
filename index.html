@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Tushar Bharat Chavan, BCA Student, Web Developer, and Data Analyst.">
+    <title>Tushar Chavan | Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#38bdf8', // Sky 400
+                        secondary: '#818cf8', // Indigo 400
+                        darkbg: '#020617', // Slate 950
+                        cardbg: '#0f172a', // Slate 900
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Text Gradients */
+        .text-gradient {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Typewriter Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #38bdf8;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Profile Image Container Shape */
+        .profile-shape {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+            transition: all 1s ease-in-out;
+        }
+        .profile-shape:hover {
+            border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold text-white tracking-wider">
+                        Tushar<span class="text-primary">.</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#education" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                        <a href="#projects" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#contact" class="bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white transition-all px-4 py-2 rounded-full text-sm font-medium">Contact Me</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-cardbg/95 backdrop-blur-xl absolute w-full border-b border-slate-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary hover:bg-slate-800">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary hover:bg-slate-800">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary hover:bg-slate-800">Skills</a>
+                <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary hover:bg-slate-800">Education</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium hover:text-primary hover:bg-slate-800">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-primary bg-primary/10">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Animated Background Blobs -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+                
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <p class="text-primary font-medium tracking-wide mb-2">👋 Welcome to my portfolio</p>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                        Hi, I'm <br>
+                        <span class="text-gradient">Tushar Chavan</span>
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl text-slate-300 mb-6 h-8">
+                        I'm a <span id="typewriter" class="font-semibold text-white"></span><span class="cursor"></span>
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0">
+                        Passionate about logical thinking and exploring new technologies. Building modern web experiences and diving deep into data analysis.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-full shadow-lg hover:shadow-primary/30 transition-all transform hover:-translate-y-1">
+                            <i class="fas fa-paper-plane mr-2"></i> Hire Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/tushar-chavan-a28933377" target="_blank" class="w-full sm:w-auto px-8 py-3 bg-cardbg border border-slate-700 text-white font-medium rounded-full shadow-lg hover:bg-slate-800 transition-all transform hover:-translate-y-1 flex items-center justify-center">
+                            <i class="fab fa-linkedin text-[#0077b5] text-xl mr-2"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Content -->
+                <div class="w-full lg:w-1/2 flex justify-center mt-10 lg:mt-0" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 animate-float">
+                        <!-- Decorative ring -->
+                        <div class="absolute inset-0 border-2 border-primary/30 rounded-full scale-105 animate-spin-slow" style="animation-duration: 15s;"></div>
+                        <!-- Profile Image -->
+                        <img src="67776.png" 
+                             onerror="this.src='https://ui-avatars.com/api/?name=Tushar+Chavan&size=512&background=020617&color=38bdf8&font-size=0.33'" 
+                             alt="Tushar Chavan" 
+                             class="w-full h-full object-cover profile-shape border-4 border-slate-800 relative z-10">
+                             
+                        <!-- Floating Tech Icons -->
+                        <div class="absolute -top-4 -right-4 bg-cardbg p-3 rounded-full border border-slate-700 shadow-xl z-20 text-yellow-400 text-2xl animate-pulse-slow">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="absolute bottom-10 -left-6 bg-cardbg p-3 rounded-full border border-slate-700 shadow-xl z-20 text-orange-500 text-2xl animate-pulse-slow" style="animation-delay: 1s;">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="absolute -bottom-4 right-10 bg-cardbg p-3 rounded-full border border-slate-700 shadow-xl z-20 text-blue-500 text-2xl animate-pulse-slow" style="animation-delay: 2s;">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <a href="#about" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-slate-400 hover:text-primary transition-colors animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white inline-block relative">
+                    About <span class="text-primary">Me</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-0 left-1/4 mt-2 rounded-full"></div>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Problem Solver & Tech Enthusiast</h3>
+                    <p class="text-slate-400 mb-4 leading-relaxed">
+                        I am currently pursuing my BCA degree at SSBES' Institute of Technology & Management, Nanded. My focus lies at the intersection of Web Design, Programming, and Data Analysis.
+                    </p>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        I thrive on logical thinking, continuously exploring new technologies, and a strong commitment to learning and self-improvement. Whether I am structuring databases or designing front-end interfaces, I aim to create efficient and impactful solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-slate-800 text-sm rounded-full text-slate-300 border border-slate-700"><i class="fas fa-lightbulb text-yellow-400 mr-2"></i> Problem Solving</span>
+                        <span class="px-4 py-2 bg-slate-800 text-sm rounded-full text-slate-300 border border-slate-700"><i class="fas fa-rocket text-primary mr-2"></i> Exploring Tech</span>
+                        <span class="px-4 py-2 bg-slate-800 text-sm rounded-full text-slate-300 border border-slate-700"><i class="fas fa-book-reader text-green-400 mr-2"></i> Self-Improvement</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Personal Information</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center border-b border-slate-700/50 pb-3">
+                            <span class="w-10 text-primary"><i class="fas fa-user"></i></span>
+                            <span class="w-32 text-slate-300 font-medium">Name:</span>
+                            <span class="text-slate-400">Tushar Bharat Chavan</span>
+                        </li>
+                        <li class="flex items-center border-b border-slate-700/50 pb-3">
+                            <span class="w-10 text-primary"><i class="fas fa-calendar-alt"></i></span>
+                            <span class="w-32 text-slate-300 font-medium">DOB:</span>
+                            <span class="text-slate-400">12/09/2004</span>
+                        </li>
+                        <li class="flex items-center border-b border-slate-700/50 pb-3">
+                            <span class="w-10 text-primary"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="w-32 text-slate-300 font-medium">Location:</span>
+                            <span class="text-slate-400">Kinwat, Nanded, Maharashtra</span>
+                        </li>
+                        <li class="flex items-center border-b border-slate-700/50 pb-3">
+                            <span class="w-10 text-primary"><i class="fas fa-language"></i></span>
+                            <span class="w-32 text-slate-300 font-medium">Languages:</span>
+                            <span class="text-slate-400">English, Hindi, Marathi</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-10 text-primary"><i class="fas fa-heart"></i></span>
+                            <span class="w-32 text-slate-300 font-medium">Status:</span>
+                            <span class="text-slate-400">Unmarried</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white inline-block relative">
+                    Technical <span class="text-primary">Skills</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-0 left-1/4 mt-2 rounded-full"></div>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Skill Cards -->
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-500/20 transition-colors">
+                        <i class="fab fa-html5 text-3xl text-orange-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium">HTML5</h4>
+                    <p class="text-xs text-slate-400 mt-1">Web Design</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
+                        <i class="fab fa-css3-alt text-3xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium">CSS3</h4>
+                    <p class="text-xs text-slate-400 mt-1">Web Design</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition-colors">
+                        <i class="fab fa-js text-3xl text-yellow-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium">JavaScript</h4>
+                    <p class="text-xs text-slate-400 mt-1">Web Design</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-400/20 transition-colors">
+                        <i class="fab fa-python text-3xl text-blue-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium">Python</h4>
+                    <p class="text-xs text-slate-400 mt-1">Programming</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-indigo-500/20 transition-colors">
+                        <i class="fas fa-code text-3xl text-indigo-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium">C Language</h4>
+                    <p class="text-xs text-slate-400 mt-1">Programming</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-teal-500/20 transition-colors">
+                        <i class="fas fa-chart-pie text-3xl text-teal-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium">Data Analyst</h4>
+                    <p class="text-xs text-slate-400 mt-1">Data</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors">
+                        <i class="fas fa-file-word text-3xl text-red-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium">MS Office</h4>
+                    <p class="text-xs text-slate-400 mt-1">Proficiency</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-sky-500/20 transition-colors">
+                        <i class="fas fa-cloud text-3xl text-sky-500"></i>
+                    </div>
+                    <h4 class="text-white font-medium">Cloud Basics</h4>
+                    <p class="text-xs text-slate-400 mt-1">Jumpstart</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Timeline Section -->
+    <section id="education" class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white inline-block relative">
+                    My <span class="text-primary">Education</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-0 left-1/4 mt-2 rounded-full"></div>
+                </h2>
+            </div>
+
+            <div class="relative border-l-2 border-primary/30 ml-3 sm:ml-0 md:mx-auto md:w-full">
+                <!-- BCA -->
+                <div class="mb-10 ml-6 md:ml-0 md:w-1/2 md:pr-10 md:ml-auto md:pl-10 relative" data-aos="fade-up">
+                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-[1.6rem] md:-left-2 top-1 border-4 border-darkbg"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <span class="text-primary font-semibold text-sm">Present - 2026</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Bachelor of Computer Applications (BCA)</h3>
+                        <p class="text-slate-400 mt-2 font-medium">SSBES’ Institute of Technology & Management (ITM), SRTM University, Nanded.</p>
+                        <p class="text-sm text-slate-500 mt-2"><i class="fas fa-award text-yellow-400"></i> Securing First Class with Distinction (70%)</p>
+                    </div>
+                </div>
+
+                <!-- HSC -->
+                <div class="mb-10 ml-6 md:ml-0 md:w-1/2 md:pr-10 relative md:text-right" data-aos="fade-up">
+                    <div class="absolute w-4 h-4 bg-secondary rounded-full -left-[1.6rem] md:-right-2 md:left-auto top-1 border-4 border-darkbg"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <span class="text-secondary font-semibold text-sm">2022</span>
+                        <h3 class="text-xl font-bold text-white mt-1">HSC in Science</h3>
+                        <p class="text-slate-400 mt-2 font-medium">Baliram Patil College, Kinwat.</p>
+                        <p class="text-sm text-slate-500 mt-2"><i class="fas fa-check-circle text-green-400"></i> First Class (67.33%)</p>
+                    </div>
+                </div>
+
+                <!-- SSC -->
+                <div class="mb-10 ml-6 md:ml-0 md:w-1/2 md:pl-10 md:ml-auto relative" data-aos="fade-up">
+                    <div class="absolute w-4 h-4 bg-purple-500 rounded-full -left-[1.6rem] md:-left-2 top-1 border-4 border-darkbg"></div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <span class="text-purple-500 font-semibold text-sm">2020</span>
+                        <h3 class="text-xl font-bold text-white mt-1">SSC</h3>
+                        <p class="text-slate-400 mt-2 font-medium">Shri Shivaji High School, Nanded.</p>
+                        <p class="text-sm text-slate-500 mt-2"><i class="fas fa-check-circle text-green-400"></i> First Class (75.60%)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects & Achievements Section -->
+    <section id="projects" class="py-20 relative bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white inline-block relative">
+                    Projects & <span class="text-primary">Achievements</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-0 left-1/4 mt-2 rounded-full"></div>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full" data-aos="fade-up" data-aos-delay="0">
+                    <div class="h-48 bg-slate-800 relative flex items-center justify-center overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-slate-900 opacity-80"></div>
+                        <i class="fas fa-users-cog text-6xl text-white/50 group-hover:scale-110 transition-transform duration-500 z-10"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="text-xs text-primary font-medium mb-2">BCA III Project</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Student Management System</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">An internally assessed desktop application for managing student records, data, and academic details efficiently.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-slate-800 text-xs rounded border border-slate-700 text-slate-300">Python</span>
+                            <span class="px-3 py-1 bg-slate-800 text-xs rounded border border-slate-700 text-slate-300">Tkinter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-slate-800 relative flex items-center justify-center overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sky-900 to-slate-900 opacity-80"></div>
+                        <i class="fas fa-cloud-upload-alt text-6xl text-white/50 group-hover:scale-110 transition-transform duration-500 z-10"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="text-xs text-primary font-medium mb-2">Certification</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Cloud Business Jumpstart</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">Successfully completed the Training Assessment, securing a 100% score and gaining foundational knowledge in cloud business technologies.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-green-500/20 text-xs rounded border border-green-500/30 text-green-400"><i class="fas fa-check mr-1"></i> Completed 100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement -->
+                <div class="glass-card rounded-2xl overflow-hidden flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-slate-800 relative flex items-center justify-center overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-900 to-slate-900 opacity-80"></div>
+                        <i class="fas fa-trophy text-6xl text-white/50 group-hover:scale-110 transition-transform duration-500 z-10"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="text-xs text-primary font-medium mb-2">Award / Achievement</div>
+                        <h3 class="text-xl font-bold text-white mb-3">District Level RTSE Exam</h3>
+                        <p class="text-slate-400 text-sm mb-4 flex-grow">Participated in the RTSE Exam 2018 during 8th standard, achieving 72 Marks and securing the 31st Rank across Maharashtra.</p>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="px-3 py-1 bg-yellow-500/20 text-xs rounded border border-yellow-500/30 text-yellow-400">Maharashtra 31st Rank</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white inline-block relative">
+                    Get In <span class="text-primary">Touch</span>
+                    <div class="absolute w-1/2 h-1 bg-primary bottom-0 left-1/4 mt-2 rounded-full"></div>
+                </h2>
+                <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Feel free to reach out for collaborations, project inquiries, or just a tech chat.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 space-y-6" data-aos="fade-right">
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 border border-primary/20">
+                            <i class="fas fa-envelope text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-lg">Email Me</h4>
+                            <a href="mailto:thusharchavan370@contoso.com" class="text-slate-400 hover:text-primary transition-colors text-sm break-all">thusharchavan370@contoso.com</a>
+                            <p class="text-slate-500 text-xs mt-1">(Primary: tusharchavan23p@gmail.com)</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 border border-primary/20">
+                            <i class="fas fa-phone-alt text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-lg">Call Me</h4>
+                            <a href="tel:+919322367657" class="text-slate-400 hover:text-primary transition-colors text-sm">+91 - 9322367657</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 border border-primary/20">
+                            <i class="fab fa-linkedin-in text-primary text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium text-lg">LinkedIn Profile</h4>
+                            <a href="https://www.linkedin.com/in/tushar-chavan-a28933377" target="_blank" class="text-slate-400 hover:text-primary transition-colors text-sm">Connect with me</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 glass-card p-8 rounded-2xl" data-aos="fade-left">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
+                                <input type="text" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-400 mb-2">Your Email</label>
+                                <input type="email" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Subject</label>
+                            <input type="text" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Project Discussion">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
+                            <textarea rows="4" required class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Hello Tushar..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-lg shadow-lg hover:shadow-primary/30 transition-all transform hover:-translate-y-1">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                        
+                        <!-- Success Message Holder -->
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-sm text-center">
+                            Thank you! Your message has been sent successfully.
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- References -->
+            <div class="mt-16 border-t border-slate-800 pt-10" data-aos="fade-up">
+                 <h3 class="text-xl font-bold text-white mb-6 text-center">Academic References</h3>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                     <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/50">
+                         <h4 class="text-white font-medium">Dr. V. W. Wagh</h4>
+                         <p class="text-xs text-primary mb-2">Director, SSBES Institute of Technology & Mgt.</p>
+                         <p class="text-slate-400 text-sm"><i class="fas fa-envelope mr-2"></i>vw19764@gmail.com</p>
+                         <p class="text-slate-400 text-sm"><i class="fas fa-phone mr-2"></i>+91 – 9324070020</p>
+                     </div>
+                     <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/50">
+                         <h4 class="text-white font-medium">Mr. P. P. Joshi</h4>
+                         <p class="text-xs text-primary mb-2">Assistant Professor, SSBES' Institute</p>
+                         <p class="text-slate-400 text-sm"><i class="fas fa-envelope mr-2"></i>ppj.sbesitm@gmail.com</p>
+                         <p class="text-slate-400 text-sm"><i class="fas fa-phone mr-2"></i>+91 - 8554912013</p>
+                     </div>
+                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-slate-500 text-sm mb-4 md:mb-0">
+                &copy; <span id="year"></span> Tushar Chavan. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+                <a href="https://www.linkedin.com/in/tushar-chavan-a28933377" target="_blank" class="text-slate-500 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="mailto:thusharchavan370@contoso.com" class="text-slate-500 hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // Set Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.classList.replace('py-4', 'py-0');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Typewriter Effect
+        const textArray = ["BCA Student", "Aspiring Web Developer", "Data Analyst", "Tech Enthusiast"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = textArray[textIndex];
+            const typeWriterElement = document.getElementById('typewriter');
+            
+            if (!typeWriterElement) return;
+
+            if (isDeleting) {
+                typeWriterElement.innerHTML = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeWriterElement.innerHTML = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                speed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % textArray.length;
+                speed = 500; // Pause before new word
+            }
+
+            setTimeout(typeWriter, speed);
+        }
+
+        document.addEventListener('DOMContentLoaded', typeWriter);
+
+        // Contact Form Mock Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                this.reset();
+                
+                const successMsg = document.getElementById('formSuccess');
+                successMsg.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    successMsg.classList.add('hidden');
+                }, 5000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
